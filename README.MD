@@ -1,6 +1,8 @@
 # 🚀 Secure CI/CD Pipeline on AWS using Terraform, GitHub Actions & Sealed Secrets
 
-This project delivers a production-ready CI/CD pipeline that leverages AWS infrastructure provisioned via Terraform and integrates modern DevSecOps workflows using GitHub Actions. It automates the complete lifecycle from source to deployment, implements infrastructure testing with Terratest, and includes security best practices such as secret encryption via Kubernetes Sealed Secrets and vulnerability scans with tfsec and Trivy.
+This repository provides a comprehensive blueprint for building secure, automated, and efficient CI/CD pipelines. It leverages Terraform to provision a complete AWS CodePipeline stack (deploying to EC2) and demonstrates a modern DevSecOps workflow using GitHub Actions to scan, test, and deploy containerized applications to Kubernetes, featuring secure secret management with Kubernetes Sealed Secrets.
+
+The project is designed to be a one-stop solution for DevOps professionals looking to implement Infrastructure as Code (IaC), robust security scanning, and automated deployment practices.
 
 ---
 
@@ -42,11 +44,12 @@ flowchart TD
 
 ## 🔑 Key Highlights
 
-- **Infrastructure as Code** with Terraform to automate AWS resource provisioning.
-- **CI/CD Workflow** managed by GitHub Actions.
-- **Security First** with `tfsec` and `Trivy` for IaC and container scanning.
-- **Encrypted Secrets** using Kubernetes Sealed Secrets.
-- **Robust Testing** using Terratest for infrastructure validation.
+- **Infrastructure as Code (IaC)**: All AWS resources (CodePipeline, EC2, S3, IAM) are fully provisioned and managed by Terraform.
+- **Automated Security Gates**: Integrates tfsec for static analysis of Terraform code and Trivy for scanning Docker images for vulnerabilities right within the CI pipeline.
+- **Dual Deployment Strategy**: Supports both traditional deployments to AWS EC2 via CodeDeploy and modern containerized deployments to Kubernetes.
+- **End-to-End Automation**: CI/CD workflows are triggered automatically on every git push, providing rapid feedback and deployment.
+- **Encrypted Secret Management**: Employs Kubernetes Sealed Secrets to safely store and manage sensitive information like database passwords and API keys in a Git repository.
+- **Infrastructure Validation**: Includes Terratest for writing automated Go tests to validate the correctness of the Terraform infrastructure.
 
 ---
 
@@ -68,8 +71,8 @@ flowchart TD
 
 ### Step 1: Clone the Repository
 ```bash
-git clone https://github.com/yourusername/DevOps-Masters-Project.git
-cd DevOps-Masters-Project
+git clone https://github.com/amit-kr-yash/DevOps-project.git
+cd DevOps-project
 ```
 
 ### Step 2: AWS CLI Configuration
@@ -203,13 +206,5 @@ DevOps-Masters-Project/
 - Secrets encrypted & applied to cluster.
 - App deployed to Kubernetes.
 
----
-
-## 💬 Contributions Welcome!
-
-1. clone locally  
-2. Create a new branch
-3. Commit your changes
-4. Push and raise PR 🚀
 
 
